@@ -36,3 +36,7 @@ test-args = [
 # bootimage maps success exit code to exit code 0, thus cargo test 
 # recognises it as success case and does not count it as failed.
 test-success-exit-code = 33
+
+[[test]]
+name = "should_panic"
+harness = false
