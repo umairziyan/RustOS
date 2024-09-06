@@ -30,6 +30,8 @@ test-args = [
   "isa-debug-exit,iobase=0xf4,iosize=0x04",
   "-serial",
   "stdio",
+  "-display",
+  "none",
 ]
 # bootimage maps success exit code to exit code 0, thus cargo test 
 # recognises it as success case and does not count it as failed.
