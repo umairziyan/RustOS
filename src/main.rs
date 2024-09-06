@@ -54,11 +54,6 @@ pub fn test_runner(tests: &[&dyn Testable]) {
     exit_qemu(QemuExitCode::Success);
 }
 
-#[test_case]
-fn trivial_assertion() {
-    assert_eq!(1, 1);
-}
-
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[repr(u32)]
 pub enum QemuExitCode {
@@ -90,5 +85,18 @@ where
         serial_print!("{}...\t", core::any::type_name::<T>());
         self();
         serial_println!("[ok]");
+    }
+}
+
+// tests
+#[test_case]
+fn test_println_simple() {
+    println!("test_println_simple output");
+}
+
+#[test_case]
+fn test_println_many() {
+    for _ in 0..200 {
+        println!("test_println_many output");
     }
 }
